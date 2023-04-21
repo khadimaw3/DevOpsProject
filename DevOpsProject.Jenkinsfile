@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('dckr_pat_vmnN7HkHuFQu9NtpASOY5N9RPp8')
+        // DOCKER_HUB_CREDENTIALS = credentials('dckr_pat_vmnN7HkHuFQu9NtpASOY5N9RPp8')
         IMAGE_NAME = 'fisrtIm'
         GIT_URL = 'https://github.com/khadimaw3/DevOpsProject.git'
     }
@@ -24,7 +24,7 @@ pipeline {
             }
         }
         
-        stage('Pousser l\'image Docker vers Docker Hub') {
+       /* stage('Pousser l\'image Docker vers Docker Hub') {
             steps {
                 script {
                     docker.withRegistry('https://hub.docker.com/repository/docker/khadimaw/devopsproject-2023/general', 'docker-hub') {
@@ -32,6 +32,6 @@ pipeline {
                     }
                 }
             }
-        }
+        } */
     }
 }
