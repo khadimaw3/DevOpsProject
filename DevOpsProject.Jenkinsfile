@@ -1,6 +1,11 @@
 pipeline {
     agent any
     
+    //specifier les outils a utiliser. Ca va telecharger les dependances necessaires
+    tools{
+        maven "Maven3"
+    }
+  
     environment {
         //DOCKER_HUB_CREDENTIALS = credentials('dckr_pat_vmnN7HkHuFQu9NtpASOY5N9RPp8')
         IMAGE_NAME = 'fisrtIm'
@@ -13,6 +18,11 @@ pipeline {
             steps {
                 git branch: 'main',
                 url: GIT_URL
+            }
+        }
+        stage("Builing the jar file") {
+            steps {
+                sh "mvn clean install"
             }
         }
         
