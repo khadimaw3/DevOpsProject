@@ -1,15 +1,16 @@
-# Utilisez une image de base avec PHP et Apache préinstallés
-FROM ubuntu 
 
-#Installation apache 
-RUN apt-get -y update && apt-get -y install Apache 
+# Définition de l'image de base
+FROM ubuntu:latest
 
+# Installation d'Apache et PHP
+RUN apt-get update && apt-get install -y apache2 php
 
-# Copiez les fichiers HTML dans le répertoire de travail de l'application
+# Copie de votre application dans le conteneur
 COPY . /var/www/html/
 
-# Exposez le port 80 pour permettre l'accès à l'application via le navigateur
+# Exposition du port 80 pour accéder à Apache depuis l'extérieur
 EXPOSE 80
 
-# Démarrez le serveur Apache lorsque le conteneur est lancé
-CMD ["apache2-foreground"]
+# Commande pour démarrer Apache lorsqu'un conteneur basé sur cette image est lancé
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
