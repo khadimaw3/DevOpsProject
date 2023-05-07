@@ -1,14 +1,14 @@
 -name: Configure my Application Server
   hosts: EC2
   vars: 
+    ansible_python_interpreter: /usr/bin/python3.9
     ecr_registry_url: 210650517739.dkr.ecr.us-west-2.amazonaws.com
     ecr_repository_name: devopsproject
     ecr_tag: latest
     container_name: WebApp
     container_port: 80
     aws_region: us-west-2
-    ansible_python_interpreter: /usr/bin/python3.9
-
+    
   tasks: 
   -name: installing docker 
     apt:
