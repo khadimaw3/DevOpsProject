@@ -1,5 +1,0 @@
-[EC2]
-54.184.97.114 
-
-[EC2:vars]
-ansible_user=root
