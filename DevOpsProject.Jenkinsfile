@@ -32,5 +32,17 @@ pipeline {
                 }
             }
         }
+        stage('Install Ansible') {
+            steps {
+                // Install Ansible on the Jenkins agent
+                sh 'pip install ansible'
+             }
+        }
+        stage('Run Ansible playbook') {
+            steps {
+                // Run Ansible playbook
+                sh "ansible-playbook -i host.txt my-playbook.yaml"
+            }
+        }
     }
 }
